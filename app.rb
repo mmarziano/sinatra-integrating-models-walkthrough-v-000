@@ -9,7 +9,7 @@ class App < Sinatra::Base
   post '/' do
     @analyzed_text = TextAnalyzer.new(params[:user_text])
 
-    "Most Common Letter: <%=@analyzed_text.most_used_letter.first[0].uppercase%>, used <%=@analyzed_text.most_used_letter.first[1]%> times"
+    "Most Common Letter: #{@analyzed_text.most_used_letter.first[0].uppercase}, used #{@analyzed_text.most_used_letter.first[1]} times"
     binding.pry
     erb :results
   end
